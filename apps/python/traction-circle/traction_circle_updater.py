@@ -14,7 +14,8 @@ class TractionCircleUpdater:
         self.model.addDataPoint(x, y, z)
 
         timeSpan = self.timeSource.time() - self.maxTimeRange
-        self.model.filterPoints(timeSpan)
+        timeSpanShort = self.timeSource.time() - 0.5
+        self.model.filterPoints(timeSpan, timeSpanShort)
         self.view.render()
 
     def setMaxTimeRange(self, timeRange):

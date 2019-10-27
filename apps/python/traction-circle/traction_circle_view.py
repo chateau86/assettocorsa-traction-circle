@@ -79,14 +79,16 @@ class TractionCircleView:
 
     def render(self):
         try:
+            dataSamplePoints = self.tractionCircleModel.dataSubSamplePoints()
             dataPoints = self.tractionCircleModel.dataPoints()
             moving_average = self.movingAvgPlotter.plotMovingAverage(dataPoints)
-            dataPointsColourFades = self.dataPointsColourFader.fade(len(dataPoints))
-            movingAverageColourFades = self.movingAverageColourFader.fade(len(dataPoints))
+            movingSampleAverage = self.movingAvgPlotter.plotMovingAverage(dataSamplePoints)
+            dataPointsColourFades = self.dataPointsColourFader.fade(len(dataSamplePoints))
+            movingAverageColourFades = self.movingAverageColourFader.fade(len(dataSamplePoints))
 
             self.drawGrid(self.gPlotter.maxXRange)
-            self.drawScatterPlot(dataPointsColourFades, dataPoints)
-            self.drawLinePlot(movingAverageColourFades, moving_average)
+            self.drawScatterPlot(dataPointsColourFades, dataSamplePoints)
+            self.drawLinePlot(movingAverageColourFades, movingSampleAverage)
             if len(moving_average) > 0:
                 self.drawPoint(self.currentSize, moving_average[-1])
 

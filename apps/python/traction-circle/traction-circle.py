@@ -28,7 +28,7 @@ def acMain(ac_version):
         numSecondsSpinner = ac.addSpinner(appWindow, 'Time Span(s)')
         ac.setPosition(numSecondsSpinner, 0, appHeight - 20)
         ac.setSize(numSecondsSpinner, 100, 20)
-        ac.setRange(numSecondsSpinner, 1, 10)
+        ac.setRange(numSecondsSpinner, 1, 60)
         ac.setValue(numSecondsSpinner, maxTimeSpan)
         ac.addOnValueChangeListener(numSecondsSpinner, updateMaxTimeRange)
 
