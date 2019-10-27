@@ -32,7 +32,7 @@ class TractionCircleView:
 
     def drawCircumference(self, radius, center):
         ac.glBegin(1)
-        nlines = max(4, int(100.*radius))
+        nlines = 24
         for i in range(nlines+1):
             x, y = self.gPlotter.plotG(center['x'] + (sin(2*pi*i/nlines)*radius), center['z'] + (cos(2*pi*i/nlines)*radius))
             ac.glVertex2f(x, y)
